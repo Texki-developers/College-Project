@@ -2,11 +2,11 @@ import React, { useRef, useState } from 'react'
 import style from '../styles/signup.module.scss';
 
 export default function signup() {
-  const [isPasswordError,setPasswordError] = useState(false);
-  const [isCPasswordError,setCPasswordError] = useState(false);
-  const [isUserNameError,setUserNameError] = useState(false)
+  const [isPasswordError,setPasswordError] = useState<boolean>(false);
+  const [isCPasswordError,setCPasswordError] = useState<boolean>(false);
+  const [isUserNameError,setUserNameError] = useState<boolean>(false)
   const cPasswordRef = useRef<HTMLInputElement>(null);
-  const [registerData,setRegisterData] = useState({
+  const [registerData,setRegisterData] = useState<{name:string,password:string}>({
     password: "",
     name:""
   });
