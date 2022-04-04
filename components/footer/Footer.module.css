@@ -1,0 +1,79 @@
+.foterContainer{
+    max-width: 100vw;
+    height: auto;
+    padding: 30px 150px;
+    background: #F2FAFA;
+    display: grid;
+    grid-template-rows: auto 50px;
+    place-items: center;
+    grid-gap: 25px;
+}
+.footerWraper{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    justify-items: center;
+    grid-gap: 25px;
+}
+.firstSection{
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.icons{
+    display: flex;
+    gap: 10px;
+}
+.secondSection{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.secondSection h3{
+    color: rgba(0, 0, 0, 0.699);
+}
+.secondSection ul{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.thirdSection{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.thirdSection h3{
+    color: rgba(0, 0, 0, 0.699);
+}
+.thirdSection ul{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.forthSection{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.forthSection h3{
+    color: rgba(0, 0, 0, 0.699);
+}
+.forthSection ul{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.forthSection ul li{
+    display: flex;
+    gap: 10px;
+}
+
+.copyRightText{
+    color: rgba(0, 0, 0, 0.356);
+}
