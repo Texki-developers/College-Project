@@ -19,13 +19,33 @@ export default function login() {
       passwordRef.current!.type = "password"
     }
   }
+
+  const handleLogin = (event:any) => {
+    event.preventDefault();
+    console.log(registerData.name,registerData.password);
+    
+    let BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
+    if(registerData.name !== "" && registerData.password !== ""){
+      fetch(`${BASE_URL}auth/login`,{
+        method: 'POST',
+        headers:{
+          'Content-Type':'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(registerData)
+      })
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.log(err))
+    }
+  }
   return (
     <div className={style.container}>
-      <form className={style.regForm}>
+      <form className={style.regForm} onSubmit={handleLogin}>
           <h1 className={style.regTitle}>Login to your account</h1>
           <div className={style.regContentWrapper}>
             <label className={style.label} htmlFor="name">Name</label>
-            <input className={style.textInput} type="text" id="name"/>
+            <input className={style.textInput} type="text" name='name' onChange={(event) => setRegisterData({...registerData,[event.target.name]:event.target.value})} id="name"/>
 
             <label className={style.label} htmlFor="password">Password</label>
             <input className={style.textInput} type="password" ref={passwordRef} onChange={handlePassword} name="password" id="password" />

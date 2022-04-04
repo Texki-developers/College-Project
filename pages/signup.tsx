@@ -1,3 +1,4 @@
+import { format } from 'path';
 import React, { useRef, useState } from 'react'
 import style from '../styles/signup.module.scss';
 
@@ -34,13 +35,33 @@ export default function signup() {
       cPasswordRef.current!.type = "password"
     }
   }
+
+  const handleRegistration = (event:any) => {
+    event.preventDefault()
+    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
+    console.log(registerData);
+    
+    if(!isCPasswordError && !isCPasswordError && !isUserNameError){
+      fetch(`${BASE_URL}auth/signup`,{
+        method:'POST',
+        headers:{
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(registerData)
+      })
+      .then(res => res.json())
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+    }
+  }
   return (
     <div className={style.container}>
-      <form className={style.regForm}>
+      <form className={style.regForm} onSubmit={handleRegistration}>
           <h1 className={style.regTitle}>Register your account free</h1>
           <div className={style.regContentWrapper}>
             <label className={style.label} htmlFor="name">Name</label>
-            <input className={style.textInput} type="text" id="name"/>
+            <input className={style.textInput} type="text" name="name" onChange={(event) => setRegisterData({...registerData,[event.target.name]:event.target.value})} id="name"/>
             {
               isUserNameError&&
               <small className={style.errorMessage}>Username not available</small>
