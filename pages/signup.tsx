@@ -1,8 +1,11 @@
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { format } from 'path';
 import React, { useRef, useState } from 'react'
 import style from '../styles/signup.module.scss';
 
 export default function signup() {
+  const router = useRouter()
   const [isPasswordError,setPasswordError] = useState<boolean>(false);
   const [isCPasswordError,setCPasswordError] = useState<boolean>(false);
   const [isUserNameError,setUserNameError] = useState<boolean>(false)
@@ -36,10 +39,23 @@ export default function signup() {
     }
   }
 
+  const handleName = (event:any) => {
+    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
+    setRegisterData({...registerData,[event.target.name]:event.target.value});
+    fetch(`${BASE_URL}auth/check/${event.target.value}`)
+    .then(res => res.json())
+    .then(res => {
+      if(res.status === "error"){
+        setUserNameError(false);
+      }else if(res.status === "ok"){
+        setUserNameError(true);
+      }
+    })
+  }
+
   const handleRegistration = (event:any) => {
     event.preventDefault()
     const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
-    console.log(registerData);
     
     if(!isCPasswordError && !isCPasswordError && !isUserNameError){
       fetch(`${BASE_URL}auth/signup`,{
@@ -51,7 +67,10 @@ export default function signup() {
         body: JSON.stringify(registerData)
       })
       .then(res => res.json())
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res)
+        router.push('/')
+      })
       .catch(err => console.log(err))
     }
   }
@@ -61,7 +80,7 @@ export default function signup() {
           <h1 className={style.regTitle}>Register your account free</h1>
           <div className={style.regContentWrapper}>
             <label className={style.label} htmlFor="name">Name</label>
-            <input className={style.textInput} type="text" name="name" onChange={(event) => setRegisterData({...registerData,[event.target.name]:event.target.value})} id="name"/>
+            <input className={style.textInput} type="text" name="name" onChange={handleName} id="name"/>
             {
               isUserNameError&&
               <small className={style.errorMessage}>Username not available</small>
@@ -83,10 +102,11 @@ export default function signup() {
 
             <div className={style.showPasswordWrapper}>
               <input type="checkbox" onClick={showPassword} name='show-password' id='show-password' />
-              <label htmlFor="show-password">Show password</label>
+              <label htmlFor="show-password" className={style.showPasswordLabel}>Show password</label>
             </div>
           </div>
           <button className={style.btnPrimary}>Register</button>
+          <Link href={'/login'}>Already have an account? Login</Link>
       </form>
     </div>
   )

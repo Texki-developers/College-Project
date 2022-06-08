@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { useRef, useState } from 'react'
 import style from '../styles/signup.module.scss';
 
@@ -22,8 +23,6 @@ export default function login() {
 
   const handleLogin = (event:any) => {
     event.preventDefault();
-    console.log(registerData.name,registerData.password);
-    
     let BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
     if(registerData.name !== "" && registerData.password !== ""){
       fetch(`${BASE_URL}auth/login`,{
@@ -35,7 +34,10 @@ export default function login() {
         body: JSON.stringify(registerData)
       })
       .then(res => res.json())
-      .then(data => console.log(data))
+      .then(data => {
+        console.log(data)
+        localStorage.setItem('token',data.token)
+      })
       .catch(err => console.log(err))
     }
   }
@@ -51,10 +53,11 @@ export default function login() {
             <input className={style.textInput} type="password" ref={passwordRef} onChange={handlePassword} name="password" id="password" />
             <div className={style.showPasswordWrapper}>
               <input type="checkbox" onClick={showPassword}  name='show-password' id='show-password' />
-              <label htmlFor="show-password">Show password</label>
+              <label htmlFor="show-password" className={style.showPasswordLabel}>Show password</label>
             </div>
           </div>
           <button className={style.btnPrimary}>Login</button>
+          <Link href={'/signup'}>Don't have an account? Signup</Link>
       </form>
     </div>
   )

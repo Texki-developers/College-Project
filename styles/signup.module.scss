@@ -1,0 +1,84 @@
+.container{
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-height: 100vh;
+}
+.regForm{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(11, 107, 120, 0.639);
+    padding: 3rem;
+}
+.regForm a{
+    color: #1E88E5;
+    text-align: center;
+    margin-top: 1rem;
+}
+.regContentWrapper{
+    display: flex;
+    flex-direction: column;
+}
+.regTitle{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+.label{
+    margin-top: 1rem;
+    margin-bottom: 5px;
+}
+.textInput{
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid rgba(11, 107, 120, 0.639);
+    font-size: 1rem;
+    outline: none;
+}
+.showPasswordWrapper{
+    display: flex;
+    justify-content: center;
+    width: max-content;
+    margin: 1rem 0;
+    align-items: center;
+}
+.showPasswordLabel{
+    margin-left: 0.5rem;
+}
+.btnPrimary{
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #fff;
+    background: #1E88E5;
+    border: none;
+    cursor: pointer;
+}
+.errorMessage{
+    color: #d20606;
+    margin-top: 3px;
+}
+
+@media only screen and (max-width:500px) {
+    .regForm{
+        width: 90%;
+        padding: 2rem;
+        a{
+            font-size: 0.85rem;
+        }
+    }
+    .regTitle{
+        font-size: 1rem;
+    }
+    .label{
+        font-size: 0.86rem;
+    }
+    .textInput{
+        font-size: 0.9rem;
+    }
+    .showPasswordLabel{
+        font-size: 0.8rem;
+    }
+}
