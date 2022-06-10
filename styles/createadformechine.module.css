@@ -1,0 +1,58 @@
+.createadformechine{
+    width: 100vw;
+    height: auto;
+    display: grid;
+    padding: 100px 0px 50px 250px;
+    place-items: center;
+}
+.boxcontainter{
+    width: 70%;
+    height: auto;
+    padding: 30px;
+    border-radius: 10px;
+    display: grid;
+    grid-gap: 20px;
+    justify-content: center;
+    color: white;
+    background: #000;
+}
+.boxcontainter h1{
+    margin-bottom: 30px;  
+    text-align: center;
+}
+.boxcontainter input, .boxcontainter textarea,.boxcontainter select{
+    min-height: 40px;
+    border-radius: 10px;
+    padding: 0px 20px;
+    outline: none;
+    width: 300px;
+}
+.boxcontainter select{
+    background: white;
+}
+.boxcontainter textarea{
+    height: 100px;
+    padding: 10px 20px;
+}
+.boxcontainter p{
+    margin-bottom: 5px;
+}
+.boxcontainter .buttons button{
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    outline: none;
+    border: none;
+}
+.buttons{
+    display: flex;
+    gap: 15px;
+}
+.buttons .button:nth-child(1){
+    color: white;
+    background-color: green;
+}
+.buttons .button:nth-child(2){
+    color: white;
+    background-color: rgb(214, 4, 4);
+}

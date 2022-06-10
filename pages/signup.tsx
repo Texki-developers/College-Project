@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { format } from 'path';
 import React, { useRef, useState } from 'react'
+import Header from '../components/header/Header';
 import style from '../styles/signup.module.scss';
 
 export default function signup() {
@@ -51,6 +52,7 @@ export default function signup() {
         setUserNameError(true);
       }
     })
+    
   }
 
   const handleRegistration = (event:any) => {
@@ -68,14 +70,20 @@ export default function signup() {
       })
       .then(res => res.json())
       .then(res => {
-        console.log(res)
+        localStorage.setItem("token",res.token)
+        localStorage.setItem("userId",res.userId)
         router.push('/')
       })
-      .catch(err => console.log(err))
+      .catch(err =>{
+         alert("error")
+         console.log(err)})
+    }else{
+      alert("not registed")
     }
   }
   return (
     <div className={style.container}>
+      <Header/>
       <form className={style.regForm} onSubmit={handleRegistration}>
           <h1 className={style.regTitle}>Register your account free</h1>
           <div className={style.regContentWrapper}>

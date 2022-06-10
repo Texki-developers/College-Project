@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React, { useRef, useState } from 'react'
+import Header from '../components/header/Header';
 import style from '../styles/signup.module.scss';
 
 export default function login() {
@@ -29,20 +30,23 @@ export default function login() {
         method: 'POST',
         headers:{
           'Content-Type':'application/json',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
+          'Access-Control-Allow-Origin': '*',
         },
         body: JSON.stringify(registerData)
       })
       .then(res => res.json())
       .then(data => {
         console.log(data)
-        localStorage.setItem('token',data.token)
+        localStorage.setItem("token",data.token)
+        localStorage.setItem("userId",data.userId)
       })
       .catch(err => console.log(err))
     }
   }
   return (
     <div className={style.container}>
+      <Header/>
       <form className={style.regForm} onSubmit={handleLogin}>
           <h1 className={style.regTitle}>Login to your account</h1>
           <div className={style.regContentWrapper}>
@@ -57,7 +61,7 @@ export default function login() {
             </div>
           </div>
           <button className={style.btnPrimary}>Login</button>
-          <Link href={'/signup'}>Don't have an account? Signup</Link>
+          <Link href={'/signup'}>Don&apos;t have an account? Signup</Link>
       </form>
     </div>
   )

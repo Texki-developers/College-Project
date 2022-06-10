@@ -12,6 +12,7 @@ import {
 } from "./Hero.module.css";
 import heroImage from "../../public/img/hero/Working remotely.png";
 import searchImage from "../../public/img/hero/searchIcon.png";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -23,11 +24,13 @@ const Hero = () => {
           notice
         </p>
         <div className={searchBox}>
-          <div className={button}>Hire a Worker</div>
+          <Link href={"/workers"} passHref>
+            <div className={button}>Hire a Worker</div>
+          </Link>
           <div className={inputContainer}>
             <input type="search" />
             <div className={searchIcon}>
-              <Image src={searchImage} alt="" width={15} height={15}/>
+              <Image src={searchImage} alt="" width={15} height={15} />
             </div>
           </div>
         </div>

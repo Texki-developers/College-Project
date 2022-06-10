@@ -1,0 +1,14 @@
+.workers{
+    width: 100vw;
+    height: auto;
+    padding: 200px 100px;
+    grid-gap: 30px;
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(5,1fr);
+}
+.workers h1{
+    position: absolute;
+    left: 100px;
+    top: 120px;
+}

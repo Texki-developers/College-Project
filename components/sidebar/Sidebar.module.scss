@@ -1,0 +1,46 @@
+.sidebar{
+    width: 20vw;
+    height: 100vh;
+    position: fixed;
+    background: #000000;
+    top: 0;
+    z-index: 9999;
+    left: 0;
+    padding: 80px 20px 20px 0px;
+}
+.itemsWraper{
+    grid-gap: 2px;
+    width: 100%;
+    height: auto;
+    display: grid;
+    color: #ffffffd1;
+}
+.item{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: start;
+    // font-family:$poppins ;
+    padding: 10px 20px;
+    border-radius: 0;
+    cursor: pointer;
+    &:hover{
+    background: #ffffff7a;
+    }
+    .imageWraper{
+        width: 40px;
+        height: 40px;
+        position: relative;
+    }
+    p{
+        font-size: 15px;
+        font-weight: 400;
+    }
+}
+
+@media only screen and (max-width:1024px) {
+    .sidebar{
+        display: none;
+    }
+}
