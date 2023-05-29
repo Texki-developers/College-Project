@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from '../components/workers/Card'
-import PortfolioImage2 from "../public/img/Portfolio/image 2.png";
+import PortfolioImage2 from "../public/img/Portfolio/image2.png";
 import style from '../styles/workers.module.css'
 import Header from '../components/header/Header'
 

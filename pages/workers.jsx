@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import Card from '../components/workers/Card'
-import PortfolioImage2 from "../public/img/Portfolio/image 2.png";
+import PortfolioImage2 from "../public/img/Portfolio/image2.png";
 import style from '../styles/workers.module.css'
 import Header from '../components/header/Header'
 
 export const getServerSideProps = async () => {
   const response = await fetch(`http://localhost:5000/api/workers`)
   const data = await response.json()
+  console.log(data)
   return {
     props: {
       data: data

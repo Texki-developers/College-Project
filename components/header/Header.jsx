@@ -23,9 +23,9 @@ const Header = () => {
                 <Link href={"/mechines"} passHref>
                     <li>rent a mechine</li>
                 </Link>
-                <Link href={`/dashboard/${id}`} passHref>
+                {/* <Link href={`/dashboard/${id}`} passHref>
                     <li>Dashboard</li>
-                </Link>
+                </Link> */}
                 <Link href={"/login"} passHref>
                     <li>login</li>
                 </Link>

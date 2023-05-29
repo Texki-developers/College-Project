@@ -4,9 +4,9 @@ import {
   cards,
 } from "./BestPortfolio.module.css";
 import Card from './Card'
-import PortfolioImage1 from "../../public/img/Portfolio/image 1.png";
-import PortfolioImage2 from "../../public/img/Portfolio/image 2.png";
-import PortfolioImage3 from "../../public/img/Portfolio/image 3.png";
+import PortfolioImage1 from "../../public/img/Portfolio/image1.png";
+import PortfolioImage2 from "../../public/img/Portfolio/image2.png";
+import PortfolioImage3 from "../../public/img/Portfolio/image3.png";
 
 const BestPortfolio = () => {
   return (
